@@ -8,8 +8,8 @@ def prophet(df):
         n = st.number_input("Ketik periode(n) forecast prophet: ", min_value=1, step=1)
     
     with st.container(key="Prophet"):
-        try: 
-            with st.spinner("Membangun model Prophet..."):
+        with st.spinner("Membangun model Prophet..."):
+            try: 
                 df = pd.DataFrame({
                     "ds": df["Waktu"],
                     "y": df["Aktual"]
@@ -30,5 +30,5 @@ def prophet(df):
                 st.write(result)
                 prophet_line_forecast(result)
 
-        except:
-            st.warning("Jenis data tidak dapat digunakan model Prophet")
+            except:
+                st.warning("Jenis data tidak dapat digunakan model Prophet")

@@ -7,8 +7,8 @@ def MA(df):
         n = st.number_input("Ketik periode (n) Moving Average", min_value=1, step=1)
 
     with st.container(key="MA"):
-        try: 
-            with st.spinner("Membangun model Moving Average..."):
+        with st.spinner("Membangun model Moving Average..."):
+            try: 
                 df[f'MA({n})'] = df['Aktual'].rolling(window=n).mean()
 
                 df_hist = pd.DataFrame({
@@ -30,5 +30,5 @@ def MA(df):
                 st.write(result)
                 forecast_line(result)
 
-        except:
-            st.warning("Jenis data tidak dapat digunakan model Moving Average")
+            except:
+                st.warning("Jenis data tidak dapat digunakan model Moving Average")

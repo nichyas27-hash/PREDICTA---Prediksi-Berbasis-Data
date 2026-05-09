@@ -9,8 +9,8 @@ def ARIMA(df):
         boxcox = st.checkbox("Stabilkan varians (Box-Cox)", value=False)
     
     with st.container(key="ARIMA"):
-        try: 
-            with st.spinner("Membangun model ARIMA..."):
+        with st.spinner("Membangun model ARIMA..."):
+            try: 
                 model = auto_arima(
                     df['Aktual'],
                     seasonal=False,
@@ -37,8 +37,8 @@ def ARIMA(df):
                 st.write(result)
                 forecast_line(result)
 
-        except: 
-            st.warning("Jenis data tidak dapat digunakan model ARIMA(p,d,q)")
+            except: 
+                st.warning("Jenis data tidak dapat digunakan model ARIMA(p,d,q)")
 
 def SARIMA(df):
     with st.container(key="input_SARIMA"):
@@ -50,8 +50,8 @@ def SARIMA(df):
             s = st.number_input("Ketik periode(s) musim arima: ", min_value=2, step=1)  
     
     with st.container(key="SARIMA"):
-        try: 
-            with st.spinner("Membangun model SARIMA..."):
+        with st.spinner("Membangun model SARIMA..."):
+            try: 
                 model = auto_arima(
                     df['Aktual'],
                     seasonal=True,
@@ -79,5 +79,5 @@ def SARIMA(df):
                 st.write(result)
                 forecast_line(result)
 
-        except:
-            st.warning("Jenis data tidak dapat digunakan model SARIMA(p,d,q)(P,D,Q)s")
+            except:
+                st.warning("Jenis data tidak dapat digunakan model SARIMA(p,d,q)(P,D,Q)s")
