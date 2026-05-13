@@ -20,5 +20,4 @@ def app():
             )
 
     with st.container(key="box-cleaning"):
-        if "df" in st.session_state:
-            clean_data(st.session_state["df"])
+        clean_data()
