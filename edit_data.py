@@ -16,11 +16,12 @@ def app():
             
     with st.container(key="box-table"):
         if "df" in st.session_state:
-            st.data_editor(
+            edited_df = st.data_editor(
                 data=st.session_state["df"],
                 num_rows="dynamic",
                 hide_index=True,
                 use_container_width=True
             )
+            st.session_state["df"] = edited_df
 
 
