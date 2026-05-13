@@ -22,6 +22,5 @@ def app():
                 hide_index=True,
                 use_container_width=True
             )
-            st.session_state["df"]
 
 
