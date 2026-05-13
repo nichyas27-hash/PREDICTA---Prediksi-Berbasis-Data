@@ -23,7 +23,9 @@ def clean_data(df):
                 if apply:
                     df = df.drop_duplicates(subset=[data]) 
                     st.success("Duplicates removed successfully! :3")
-                    st.session_state['df'] = df
+                    if "df_edited" in st.session_state:
+                        del st.session_state["df_edited"]
+                    
                     st.rerun()
 
         except Exception as e:
@@ -44,7 +46,9 @@ def clean_data(df):
                 if apply:
                     df = df.dropna(subset=[data])
                     st.success("Null values dropped successfully! :3")
-                    st.session_state['df'] = df
+                    if "df_edited" in st.session_state:
+                        del st.session_state["df_edited"]
+                    
                     st.rerun()
                 
         except Exception as e:
@@ -69,8 +73,10 @@ def clean_data(df):
     
                 if apply:
                     df[data] = df[data].fillna(fill)
-                    st.session_state["df"] = df
                     st.success("Missing values filled successfully!")
+                    if "df_edited" in st.session_state:
+                        del st.session_state["df_edited"]
+                    
                     st.rerun()
 
         except Exception as e:
@@ -96,7 +102,9 @@ def clean_data(df):
                     upper_bound = q3 + 1.5 * iqr
                     df = df[(df[data] >= lower_bound) & (df[data] <= upper_bound)]
                     st.success("Outliers removed successfully! :3")
-                    st.session_state['df'] = df
+                    if "df_edited" in st.session_state:
+                        del st.session_state["df_edited"]
+                    
                     st.rerun()
 
         except Exception as e:
