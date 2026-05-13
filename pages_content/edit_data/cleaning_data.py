@@ -20,7 +20,7 @@ def clean_data():
                         options=df.columns
                     )
                 with col2:
-                    apply = st.button("Terapkan")
+                    apply = st.form_submit_button("Terapkan", key="remove_duplicate")
     
                 if apply:
                     df = df.drop_duplicates(subset=[data]) 
@@ -41,7 +41,7 @@ def clean_data():
                             options=df.columns
                         )
                 with col2:
-                    apply = st.button("Terapkan")
+                    apply = st.form_submit_button("Terapkan", key="drop_na")
     
                 if apply:
                     df = df.dropna(subset=[data])
@@ -67,7 +67,7 @@ def clean_data():
                     fill = st.text_input("Masukkan value di sini:")
     
                 with col3:
-                    apply = st.button("Terapkan", key="fill")
+                    apply = st.form_submit_button("Terapkan", key="fill_na")
     
                 if apply:
                     df[data] = df[data].fillna(fill)
@@ -88,7 +88,7 @@ def clean_data():
                         options=df.columns
                     )
                 with col2:
-                    apply = st.button("Terapkan")
+                    apply = st.form_submit_button("Terapkan", key="remove_outliers")
     
                 if apply:
                     q1 = df[data].quantile(0.25)
