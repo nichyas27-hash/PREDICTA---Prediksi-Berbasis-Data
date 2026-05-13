@@ -7,7 +7,7 @@ def app():
     with st.container(key="box-uploader"):
         df = readFile()
 
-        if df is not None:
+        if df is not None and "df" not in st.session_state:
             st.session_state["df"] = df
 
     with st.container(key="box-cleaning"):
