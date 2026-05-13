@@ -1,7 +1,9 @@
 import pandas as pd
 import streamlit as st
 
-def clean_data(df):
+def clean_data():
+    df = st.session_state["df"]
+    
     selected = st.menu_button(
         label="Clean Data",
         options=["Remove Duplicates", "Drop Null Values", "Fill Missing Values", "Remove Outliers"],
