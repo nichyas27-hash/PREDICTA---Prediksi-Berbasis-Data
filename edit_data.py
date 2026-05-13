@@ -10,6 +10,10 @@ def app():
         if df is not None:
             st.session_state["df"] = df
 
+    with st.container(key="box-cleaning"):
+        if "df" in st.session_state:
+            clean_data(st.session_state["df"])
+            
     with st.container(key="box-table"):
         if "df" in st.session_state:
             df_edited = st.data_editor(
@@ -20,6 +24,4 @@ def app():
             )
             st.session_state["df"] = df_edited
 
-    with st.container(key="box-cleaning"):
-        if "df" in st.session_state:
-            clean_data(st.session_state["df"])
+
