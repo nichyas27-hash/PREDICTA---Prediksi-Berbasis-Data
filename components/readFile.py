@@ -10,8 +10,8 @@ def readFile():
     if file is not None:
         file = pd.read_csv(file)
         return file
-    else: 
-        ""
+
+    return None
     
 def dataTest(df):
     try:
