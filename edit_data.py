@@ -3,6 +3,7 @@ from components.readFile import readFile
 from pages_content.edit_data.cleaning_data import clean_data
 
 def app():
+    st.info("Fitur Clean Data maaih belum bisa digunakan, karena aku lagi sibuk KP jadi nanti² aja aku lanjutin : 3")
 
     with st.container(key="box-uploader"):
         df = readFile()
